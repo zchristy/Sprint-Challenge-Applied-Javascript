@@ -9,32 +9,38 @@ class Carousel {
 
     this.counter = 0;
     this.numImages = this.image.length;
-    this.currentIndex = this.image[0];
+    this.currentIndex = this.image[this.counter];
 
-    this.carElement.classList.add('active');
+    this.navigateLeft = this.navigateLeft.bind(this);
+    this.left.addEventListener('click', this.navigateLeft);
 
-    this.navigate = this.navigate.bind(this);
-    this.left.addEventListener('click', function(event) {
-      this.navigate(1);
-    });
-
-    this.right.addEventListener('click', function(event) {
-      this.navigate(-1);
-    });
+    this.navigateRight = this.navigateRight.bind(this);
+    this.right.addEventListener('click', this.navigateRight);
   }
 
-  navigate(direction) {
+  navigateLeft() {
     this.currentIndex.classList.remove('active');
-    this.counter = this.counter + direction;
-    if (direction === -1 &&
-        this.counter < 0) {
-      this.counter = this.numImages - 1;
+    this.currentIndex.classList.add('hidden');
+    if(this.counter > 0) {
+      this.counter = this.counter - 1;
+    } else {
+      this.counter = this.numImages -1
     }
-    if (direction === 1 &&
-        !this.image[this.counter]) {
+    this.currentIndex = this.image[this.counter];
+    this.currentIndex.classList.remove('hidden');
+    this.currentIndex.classList.add('active');
+  }
+
+  navigateRight() {
+    this.currentIndex.classList.remove('active');
+    this.currentIndex.classList.add('hidden');
+    if(this.counter < this.numImages - 1) {
+      this.counter = this.counter + 1;
+    } else {
       this.counter = 0;
     }
     this.currentIndex = this.image[this.counter];
+    this.currentIndex.classList.remove('hidden');
     this.currentIndex.classList.add('active');
   }
 }
