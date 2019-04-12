@@ -32,13 +32,24 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. What is the DOM?
 
+  `A: The Document Object Model is a cross-platform and language-independent API that treats an HTML document as a tree structure where each node is an object representing a part of the document.`
+
 2. What is an event?
+
+  `A: JavaScript's interaction with HTML is handled through events that happen when the user or the browser manipulates a page`
 
 3. What is an event listener?
 
+  `A: The EventListener interface represents an object that can handle an event dispatched by an EventTarget object`
+
 4. Why would we convert a NodeList into an Array?
 
+  `A: You would convert a NodeList into an Array to use methods like .map(), .filter() .bind(). NodeList do
+  not have the same properties as an Array.`
+
 5. What is a component?
+
+  `A: A Component is a block of reusable code that can be interchangeable in different projects. Usually wrapped with in a Class`
 
 ### Git Set up
 
